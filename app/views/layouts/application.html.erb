@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FeeApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css"
+      integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY="
+      crossorigin="anonymous"
+    />
+
+
+  </head>
+  <body>
+    <%= render 'layouts/navigation' %>
+
+
+    <div class="wrapper d-flex">
+
+      <%= render 'layouts/sidemenu' %>
+
+      <div class="content container   ">
+        <div class="container-fluid">
+          <%= render 'layouts/messages' %>
+          <%= yield %>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  </body>
+</html>
