@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_163627) do
+ActiveRecord::Schema.define(version: 2020_07_16_083424) do
+
+  create_table "receipts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "student_id"
+    t.string "receipt_no"
+    t.date "receipt_date"
+    t.string "academic_year"
+    t.float "tution_fee"
+    t.float "devlopment_fee"
+    t.float "other_fee"
+    t.float "total"
+    t.string "payment_mode"
+    t.string "dd_no"
+    t.date "dd_date"
+    t.float "dd_amount"
+    t.boolean "status"
+    t.string "remark"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_receipts_on_student_id"
+  end
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
