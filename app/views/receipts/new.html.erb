@@ -1,3 +1,7 @@
+
+<%= form_for @receipt   do |form| %>
+
+
  <div class="col-sm-8">
   <table class="table-bordered table ">
 
@@ -7,81 +11,70 @@
 
     </tr>
 
-<tr>
-        <td>RECEIPT NUMBER.<div class="col">
-     <input type="text" class="form-control" placeholder="">
-    </div></td>
+    <tr>
+      <td>
+         <div >  NAME <b> <%=@student.name %></b><br>Class<b> <%=@student.student_class %></b>
+        <br>Branch<b><%=@student.branch %></b><br> Category <b><%=@student.caste %><b>
+  </div>
+</td>
+  <td>
+    <%= form.label :receipt_no %><div class="col">
+    <%= form.text_field :receipt_no, :value => @receipt_no, :readonly => true %>
+    </div>
+    SELECT DATE <div class="col"> <%= date_field("receipt", "receipt_date", value:   @time1)
+    %></div>
+    </td>
+    </tr>
 
-    	 <td>SELECT DATE <div class="col"> <%= date_field("receipt", "receipt_date", value: "1984-05-12")
-       %></div></td>
+ 
 
 
-      </tr>
-
-      <tr>
-        <td> <div class="col">STUDENT NAME
-     <input type="text" class="form-control" placeholder="Student Name">
-    </div></td>
-     <td>
-
-    <div class="col"> CLASS<input type="text" class="form-control" placeholder="Class">
-    </div></td>
-
-      </tr>
 
 
 <tr>
-        <td> <div class="col">FEES FOR THE ACADEMIC YEAR :
-    </div></td>
+        <td>  FEES FOR THE ACADEMIC YEAR :
+   </td>
 
      <td>
-    <div class="col"> <select class="form-control" id="sel1" name="sellist1">
-        <option>A.Y 2019-20</option>
-        <option>A.Y 2020-21</option>
-      </select>
-    </div></td>
-
-      </tr>
-
-
-      <tr>
-        <td>YOUR BRANCH<div class="col">
       <select class="form-control" id="sel1" name="sellist1">
-        <option>COMPUTER</option>
-        <option>I.T</option>
-        <option>MECHANICAL</option>
-        <option>CIVIL</option>
-	<option>ENTC</option>
+        <option>FE</option>
+        <option>SE</option>
       </select>
-    </div></td>
-
-	<td>CATEGORY <div class="col">
-      <input type="text" class="form-control" placeholder="Category"></div></td>
-
+     </td>
 
       </tr>
-
-
       <tr>
-        <td>TUITION FEES<div class="col">
-      <input type="text" class="form-control" placeholder="Tuition Fees">
-    </div></td>
-    	<td>DEVELOPMENT FEES <div class="col">
-      <input type="text" class="form-control" placeholder="Development Fees">
-    </div></td>
+          <td> Tution  FEES <div class="col">
+
+          </div></td>
+       <td><input type="text" class="form-control" placeholder="Other fees ">
+           </td>
+
+        </tr>
+
+      </tr>
+      <tr>
+          <td> Development FEES</td>
+       <td><input type="text" class="form-control" placeholder="Other fees ">
+           </td>
+
+        </tr>
+
+        <tr>
+            <td> Other FEES <div class="col">
+
+            </div></td>
+         <td><input type="text" class="form-control" placeholder="Other fees ">
+             </td>
+
+          </tr>
 
 
-     </tr>
 
-<tr>
-    <td> OTHER FEES <div class="col">
-      <input type="text" class="form-control" placeholder="Other fees ">
-    </div></td>
- <td>PENDING FEES <div class="col">
-      <input type="text" class="form-control" placeholder="Pending fees">
-    </div></td>
 
-  </tr>
+
+
+
 
 <tr>
     <td> CASh/NEFT/D.D NO.<div class="col">
@@ -123,14 +116,12 @@
 
 </tr>
 
-<tr>
-    <td> <div class="col">
-     <button class="btn btn-primary" type="submit">SUBMIT</button>
-      <button class="btn btn-primary" type="submit">DOWNLOAD RECEIPT </button>
-    </div></td>
+
 
 
 </tr>
 
   </tbody></table>
 </div>
+<%= form.submit %>
+<% end %>
