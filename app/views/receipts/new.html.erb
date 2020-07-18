@@ -8,68 +8,76 @@
 <tbody>
   <tr>
     <h3 align="center"> Fee Reciept </h3>
-
+    <%= form.hidden_field  :student_id, :value => @student.id %>
     </tr>
+
 
     <tr>
       <td>
-         <div >  NAME <b> <%=@student.name %></b><br>Class<b> <%=@student.student_class %></b>
+        <div >
+
+            NAME <b> <%=@student.name %></b><br>Class<b> <%=@student.student_class %></b>
         <br>Branch<b><%=@student.branch %></b><br> Category <b><%=@student.caste %><b>
-  </div>
+        </div>
 </td>
   <td>
     <%= form.label :receipt_no %><div class="col">
     <%= form.text_field :receipt_no, :value => @receipt_no, :readonly => true %>
     </div>
-    SELECT DATE <div class="col"> <%= date_field("receipt", "receipt_date", value:   @time1)
-    %></div>
+    Select Date <div class="col"> <%= form.date_field :receipt_date ,   value:   @time1 %>
+    </div>
     </td>
     </tr>
 
- 
+
 
 
 
 
 <tr>
-        <td>  FEES FOR THE ACADEMIC YEAR :
+        <td> <%= form.label :academic_year %><div class="col">
    </td>
 
      <td>
-      <select class="form-control" id="sel1" name="sellist1">
-        <option>FE</option>
-        <option>SE</option>
-      </select>
+
+       <%= form.text_field :academic_year, :value =>@student.academic_year, :readonly => true %>
      </td>
 
       </tr>
       <tr>
-          <td> Tution  FEES <div class="col">
+          <td> <%= form.label :tution_fee %> <div class="col">
 
           </div></td>
-       <td><input type="text" class="form-control" placeholder="Other fees ">
+       <td><%= form.number_field :tution_fee  %>
            </td>
 
         </tr>
 
       </tr>
       <tr>
-          <td> Development FEES</td>
-       <td><input type="text" class="form-control" placeholder="Other fees ">
+          <td><%= form.label :devlopment_fee %></td>
+       <td><%= form.number_field :devlopment_fee  %>
            </td>
 
         </tr>
 
         <tr>
-            <td> Other FEES <div class="col">
+            <td> <%= form.label :other_fee %> <div class="col">
 
             </div></td>
-         <td><input type="text" class="form-control" placeholder="Other fees ">
+         <td><%= form.number_field :other_fee %>
              </td>
 
           </tr>
 
+          <tr>
+              <td> <%= form.label :total %> <div class="col">
 
+              </div></td>
+           <td><%= form.number_field :total %>
+               </td>
+
+            </tr>
 
 
 
@@ -77,11 +85,12 @@
 
 
 <tr>
-    <td> CASh/NEFT/D.D NO.<div class="col">
-     <input type="text" class="form-control" placeholder="">
+    <td> CASh/NEFT/D.D<div class="col">
+      <%= form.text_field :dd_no %></div> <div class="col">
+      D.D NO.<%= form.text_field :payment_mode %>
     </div></td>
     <td>DATE.<div class="col">
-    <input type="date" id="birthday" name="date"></div></td>
+    <%= form.date_field :dd_date ,   value:   @time1 %>
 
 
 
@@ -89,7 +98,7 @@
 
 <tr>
     <td>AMOUNT RS. <div class="col">
-     <input type="text" class="form-control" placeholder="">
+     <%= form.number_field :dd_amount %>
     </div></td>
     <td>BANK NAME  <div class="col">
      <input type="text" class="form-control" placeholder="">
@@ -116,10 +125,15 @@
 
 </tr>
 
+<tr>
 
+    <td>   Conform Reciept <%= form.label :status %> <div class="col">
 
+    </div></td>
+ <td><%= form.check_box :status %>
+     </td>
 
-</tr>
+  </tr>
 
   </tbody></table>
 </div>
