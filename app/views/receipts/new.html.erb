@@ -1,14 +1,19 @@
-<h3 align="center"> Fee Reciept </h3>
-<div class="col-sm-8">
+ <div class="col-sm-8">
   <table class="table-bordered table ">
 
 <tbody>
+  <tr>
+    <h3 align="center"> Fee Reciept </h3>
+
+    </tr>
 
 <tr>
         <td>RECEIPT NUMBER.<div class="col">
      <input type="text" class="form-control" placeholder="">
     </div></td>
-    	 <td>SELECT DATE <div class="col"> <input type="date" id="birthday" name="date"></div></td>
+
+    	 <td>SELECT DATE <div class="col"> <%= date_field("receipt", "receipt_date", value: "1984-05-12")
+       %></div></td>
 
 
       </tr>
