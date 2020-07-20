@@ -7,10 +7,14 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("packs/datatables-demo")
+require("packs/custom")
+require("packs/scripts")
+
 
 import "bootstrap"
 
-
+global.$=jQuery;
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

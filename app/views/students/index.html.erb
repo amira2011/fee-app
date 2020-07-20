@@ -1,67 +1,79 @@
-<h2>Upload Students</h2>
 
-<%= form_tag import_students_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Upload Students" %>
-<% end %>
+<div class="container-fluid">
+    <h4 class="mt-4">Student Upload</h4>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.html">Student</a></li>
+        <li class="breadcrumb-item active">Upload</li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-body">
+          <%= form_tag import_students_path, multipart: true do %>
+            <%= file_field_tag :file %>
+            <%= submit_tag "Upload Students" %>
+          <% end %>
+             .
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Student List
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>caste</th>
+                          <th>admission_year</th>
+                          <th>student_class</th>
+                          <th>branch</th>
+                          <th>application_id</th>
+                          <th>tution_fee</th>
+                          <th>devlopment_fee</th>
+                          <th>other_fee</th>
+                          <th>total</th>
+                          <th>mobile</th>
+                        </tr>
+                    </thead>
 
+                    <tbody>
+                      <% @students.each do |s| %>
+                      <tr>
+                        <td><%= s.name%></td>
+                        <td><%= s.caste%></td>
+                        <td><%= s.admission_year%></td>
 
-
-
-
-
-<h2>Students List</h2>
-
-
-<div class="row">
-
-  <div class="col-12">
-    <table class="table table-bordered table-hover overflow-x:auto">
-      <thead>
-
-
-        <tr>
-          <th scope="col">name</th>
-          <th scope="col">caste</th>
-          <th scope="col">admission_year</th>
-          <th scope="col">student_class</th>
-          <th scope="col">branch</th>
-          <th scope="col">application_id</th>
-          <th scope="col">tution_fee</th>
-          <th scope="col">devlopment_fee</th>
-          <th scope="col">other_fee</th>
-          <th scope="col">total</th>
-          <th scope="col">mobile</th>
-
-
-
-        </tr>
-      </thead>
-
-
-
-      <tbody>
-        <% @students.each do |s| %>
-        <tr>
-          <td><%= s.name%></td>
-          <td><%= s.caste%></td>
-          <td><%= s.admission_year%></td>
-
-          <td><%= s.student_class%></td>
-          <td><%= s.branch%></td>
-          <td><%= s.application_id%></td>
-          <td><%= s.tution_fee%></td>
-          <td><%= s.devlopment_fee%></td>
-          <td><%= s.other_fee%></td>
-          <td><%= s.total%></td>
+                        <td><%= s.student_class%></td>
+                        <td><%= s.branch%></td>
+                        <td><%= s.application_id%></td>
+                        <td><%= s.tution_fee%></td>
+                        <td><%= s.devlopment_fee%></td>
+                        <td><%= s.other_fee%></td>
+                        <td><%= s.total%></td>
 
 
-          <td><%= s.mobile%></td>
+                        <td><%= s.mobile%></td>
 
-        </tr>
-         <% end %>
-      </tbody>
-    </table>
+                      </tr>
+                       <% end %>
 
-  </div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+ 
