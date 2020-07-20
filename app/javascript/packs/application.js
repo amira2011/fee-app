@@ -7,9 +7,13 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("packs/datatables-demo")
 require("packs/custom")
 require("packs/scripts")
+require("packs/chart-area-demo")
+require("packs/chart-bar-demo")
+require("packs/chart-pie-demo")
+require("packs/datatables-demo")
+ 
 
 
 import "bootstrap"

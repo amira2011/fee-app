@@ -3,5 +3,12 @@
 console.log("Data  js file loaded");
 
 $(document).ready(function() {
-  $('#dataTable').DataTable();
+ 
+
+  $('#dataTable').DataTable( {
+        order: [[2, 'asc']],
+        rowGroup: {
+            dataSrc: 2
+        }
+    } );
 });
