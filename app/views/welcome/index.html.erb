@@ -1,7 +1,7 @@
 
 
                     <div class="container-fluid">
-                      <div style="height: 2vh;"></div>
+                      <div style="height: 1vh;"></div>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
@@ -110,17 +110,18 @@
                     </div>
 
 
-                    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+
 
                     <script type="text/javascript">
                       $(document).ready(function() {
 
 
                         $('#dataTable').DataTable( {
-                              order: [[2, 'asc']],
-                              rowGroup: {
-                                  dataSrc: 2
-                              }
+                          dom: 'Bfrtip',
+                           	buttons: [
+                                  'copy', 'excel', 'pdf'
+                              ]
+
                           } );
                       });
                     </script>
