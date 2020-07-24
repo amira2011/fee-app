@@ -2,8 +2,26 @@ class ReceiptsController < ApplicationController
 
 
 def new
+  @sa=Student.all
+  @names = Array.new
+      @sa.each do |s|
+            @names.push(s.name)
+      end
+
+
+
+if params[:name].present?
+
+   @student= Student.where(name: params[:name]).first
+
+
+end
+
+
+
+
+
   @receipt =Receipt.new
-  @student=Student.first
   @receipt_no=Receipt.maximum(:id).to_i+1
   @time=  ist Time.new
   @time1= @time.strftime("%Y-%m-%d")
@@ -17,7 +35,7 @@ def create
   @receipt = Receipt.new(receipt_params)
 
    if @receipt.save
-      redirect_to students_path
+      redirect_to root_path
    else
 
     redirect_to search_path

@@ -26,18 +26,18 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
+                                    <div class="card-body">Fee Recived</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <%= Receipt.where(status: true).sum(:total) %>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
+                                    <div class="card-body">Pending Fee</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <%= Student.sum(:total)- Receipt.where(status: true).sum(:total) %>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -76,11 +76,11 @@
                                         <tr>
                                           <th>name</th>
                                           <th>caste</th>
-                                          <th>admission_year</th>
+                                          <th>Total Fees</th>
                                           <th>student_class</th>
                                           <th>branch</th>
-                                          <th>mobile</th>
-                                          <th>Action </th>
+                                          <th>Fees Paid</th>
+                                          <th>Remaining Fees </th>
                                         </tr>
                                     </thead>
 
@@ -89,12 +89,12 @@
                                       <tr>
                                         <td><%= s.name%></td>
                                         <td><%= s.caste%></td>
-                                        <td><%= s.admission_year%></td>
+                                        <td><%= s.total%></td>
 
                                         <td><%= s.student_class%></td>
                                         <td><%= s.branch%></td>
-                                        <td><%= s.mobile%></td>
-                                        <td>Generate Receipts </td>
+                                        <td><%= Receipt.where(student_id: s.id, status: true).sum(:total)%></td>
+                                        <td><%= s.total- Receipt.where(student_id: s.id, status: true).sum(:total)%></td>
                                       </tr>
                                        <% end %>
 
